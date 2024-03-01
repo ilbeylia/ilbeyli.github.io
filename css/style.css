@@ -1,0 +1,122 @@
+body{
+    background: #414142;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+header{
+    background: transparent;
+    text-align: center;
+    margin: 5%;
+    color:#ffff;
+
+}
+
+main{
+    background: transparent;
+    margin: 3%;
+    color:#ffff;
+
+
+}
+
+.accordion-item{
+    background-color: #414142d8;
+    border-color: #ffff;
+    
+}
+.accordion-item .accordion-button{
+    background-color: #ffffff83;
+    color:#ffff;
+
+}
+.accordion-button:active, .accordion-button:focus {
+    background-color: #ffffff5b;
+}
+.accordion-body{
+    color: #ffff;
+}
+
+
+/*  */
+
+
+.content {
+    position: absolute;
+    overflow:hidden;
+    font-size: 35px;
+    line-height: 40px;
+    color: #ecf0f1;
+}
+
+.content__container {
+    font-weight: 400;
+    overflow: hidden;
+    height: 40px;
+    padding: 0 40px;
+}
+
+.content__container:before {
+    content: '[';
+    left: 0;
+}
+
+.content__container:after {
+    content: ']';
+    position: absolute;
+    right: 0;
+}
+
+.content__container:before,
+.content__container:after {
+    position: absolute;
+    top: 0;
+    
+    color: #16a085;
+    font-size: 35px;
+    line-height: 40px;
+    
+    animation-name: opacity;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.content__text {
+    display: inline;
+    float: left;
+    margin: 0;
+}
+
+.content__list {
+    margin-top: 0;
+    padding-left: 110px;
+    text-align: left;
+    list-style: none;
+    
+    animation-name: change;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+.content__item {
+    line-height:40px;
+    margin:0;
+}
+
+@keyframes opacity {
+    0%, 100% {opacity:0;}
+    50% {opacity:1;}
+}
+
+@keyframes change {
+    0%, 12.66%, 100% {transform:translate3d(0,0,0);}
+    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+    33.32%,45.98% {transform:translate3d(0,-50%,0);}
+    49.98%,62.64% {transform:translate3d(0,-75%,0);}
+    66.64%,79.3% {transform:translate3d(0,-50%,0);}
+    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+}
