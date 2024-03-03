@@ -32,7 +32,7 @@ main{
 .accordion-item .accordion-button{
     background-color: #ffffff83;
     color:#ffff;
-
+    
 }
 .accordion-button:active, .accordion-button:focus {
     background-color: #ffffff5b;
@@ -46,14 +46,19 @@ main{
 
 
 .content {
-    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     overflow:hidden;
     font-size: 35px;
     line-height: 40px;
     color: #ecf0f1;
+
 }
 
 .content__container {
+    text-align: center;
     font-weight: 400;
     overflow: hidden;
     height: 40px;
@@ -119,4 +124,16 @@ main{
     49.98%,62.64% {transform:translate3d(0,-75%,0);}
     66.64%,79.3% {transform:translate3d(0,-50%,0);}
     83.3%,95.96% {transform:translate3d(0,-25%,0);}
+}
+
+::-webkit-scrollbar {
+    width: 2px; /* Scrol barı genişliği */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.281); /* Scrol barı rengi ve şeffaflığı */
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1); /* Scrol barı arka plan rengi ve şeffaflığı */
 }
