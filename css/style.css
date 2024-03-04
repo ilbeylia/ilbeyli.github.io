@@ -24,6 +24,15 @@ main{
 
 }
 
+
+.container-flex{
+    position: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
 .accordion-item{
     background-color: #414142d8;
     border-color: #ffff;
@@ -54,6 +63,7 @@ main{
     font-size: 35px;
     line-height: 40px;
     color: #ecf0f1;
+    width: 340px;
 
 }
 
@@ -98,7 +108,7 @@ main{
 
 .content__list {
     margin-top: 0;
-    padding-left: 110px;
+    padding-left: 100px;
     text-align: left;
     list-style: none;
     
@@ -136,4 +146,28 @@ main{
 
 ::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1); /* Scrol barı arka plan rengi ve şeffaflığı */
+}
+
+@media screen and (max-width: 992px) {
+    body{
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+    header{
+        overflow-x: hidden;
+    }
+    main{
+        overflow-x: hidden;
+    }   
+
+    .container-flex img{
+        justify-content: center;
+    }
+    .content{
+        font-size: 28px;
+        width: 285px;
+    }
+    .content__list{
+        padding-left: 75px;
+    }
 }
