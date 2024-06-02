@@ -1,5 +1,5 @@
 body{
-    background: #7d7e7d;
+    background: linear-gradient(#464646, #7d7e7d );
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
     margin: 0;
@@ -41,6 +41,7 @@ main{
 .accordion-item .accordion-button{
     background-color: #ffffff83;
     color:#585858;
+    font-weight: bold;
     
 }
 .accordion-button:active, .accordion-button:focus {
@@ -136,16 +137,25 @@ main{
     83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
 
+
+mark {
+    color: inherit; 
+    background: none;
+}
+
+
+
+
 ::-webkit-scrollbar {
-    width: 2px; /* Scrol barı genişliği */
+    width: 2px; 
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.281); /* Scrol barı rengi ve şeffaflığı */
+    background-color: rgba(255, 255, 255, 0.281); 
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.1); /* Scrol barı arka plan rengi ve şeffaflığı */
+    background-color: rgba(0, 0, 0, 0.1); 
 }
 
 @media screen and (max-width: 992px) {
@@ -170,4 +180,26 @@ main{
     .content__list{
         padding-left: 75px;
     }
+
+    @keyframes highlight {
+        to {
+            background-position: 0;
+        }
+    }
+    
+    mark {
+        animation: highlight linear forwards;
+        animation-timeline: view(60% 20%);
+        background: linear-gradient(
+            to right,
+            oklch(0.86 0.19 84.89 / 1) 50%,
+            oklch(0.86 0.19 84.89 / 0) 50%
+        );
+        background-position: 100%;
+        background-size: 200% 100%;
+        border-radius: 0.125rem;
+        padding-inline: 0.125rem;
+        color: #000000;
+    }
+    
 }
