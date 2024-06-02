@@ -1,6 +1,6 @@
 body{
-    background: #414142;
-    font-family: 'Pixelify Sans', sans-serif;
+    background: #779979;
+    font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
     margin: 0;
     padding: 0;
@@ -34,13 +34,13 @@ main{
 
 
 .accordion-item{
-    background-color: #414142d8;
-    border-color: #ffff;
+    background-color: transparent;
+    border-color: #ffffff5b;
     
 }
 .accordion-item .accordion-button{
     background-color: #ffffff83;
-    color:#ffff;
+    color:#585858;
     
 }
 .accordion-button:active, .accordion-button:focus {
@@ -90,8 +90,8 @@ main{
 .content__container:after {
     position: absolute;
     top: 0;
-    
-    color: #16a085;
+    /* #16a085 */
+    color: #436454;
     font-size: 35px;
     line-height: 40px;
     
