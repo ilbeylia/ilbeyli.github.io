@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    let loadedAboutText = 'Electrical & Electronics Engineer specializing in embedded systems.';
+
     // 1. Preloader
     const preloader = document.getElementById('preloader');
-    setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.visibility = 'hidden';
-    }, 1200);
+    if (preloader) {
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        }, 1000);
+    }
 
     // 2. Tab Switcher
     const tabButtons = document.querySelectorAll('.tab-btn');
@@ -18,12 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
             button.classList.add('active');
 
             const tab = button.getAttribute('data-tab');
-            if (tab === 'projects') {
-                projectsSection.classList.add('active');
-                blogSection.classList.remove('active');
-            } else {
-                blogSection.classList.add('active');
-                projectsSection.classList.remove('active');
+            if (projectsSection && blogSection) {
+                if (tab === 'projects') {
+                    projectsSection.classList.add('active');
+                    blogSection.classList.remove('active');
+                } else {
+                    blogSection.classList.add('active');
+                    projectsSection.classList.remove('active');
+                }
             }
         });
     });
@@ -33,25 +39,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'dev-card';
         
-        const tagsHTML = item.tags 
+        const tagsHTML = (item.tags && Array.isArray(item.tags))
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join('') 
             : '';
 
         card.innerHTML = `
             <div>
                 <div class="card-header-meta">
-                    <strong>${item.type || 'Article.md'}</strong> // ${item.date}
+                    <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
                 </div>
-                <h3 class="card-main-title">${item.title}</h3>
+                <h3 class="card-main-title">${item.title || 'Untitled'}</h3>
             </div>
             
             <div>
                 <div class="card-tags">
                     ${tagsHTML}
-                </div>
-                <div class="card-author-info">
-                    ${item.avatar ? `<img src="${item.avatar}" alt="${item.author}" class="card-avatar">` : ''}
-                    <span class="card-author-name">${item.author}</span>
                 </div>
             </div>
         `;
@@ -60,48 +62,103 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // 4. JSON Yükleme
-    fetch('data/projects.json')
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('projects-container');
-            data.forEach(project => container.appendChild(createDevCard(project)));
-        })
-        .catch(err => console.error('Projects verisi yüklenemedi:', err));
+    // 4. JSON Verilerini Yükleme
+    async function loadJsonData(jsonPath, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
 
-    fetch('data/posts.json')
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('blog-container');
-            data.forEach(post => container.appendChild(createDevCard(post)));
-        })
-        .catch(err => console.error('Posts verisi yüklenemedi:', err));
+        try {
+            const response = await fetch(jsonPath);
+            if (!response.ok) throw new Error(`HTTP Hatası! Durum: ${response.status}`);
 
-    // 5. Modal İşlemleri
+            const data = await response.json();
+
+            if (!Array.isArray(data) || data.length === 0) {
+                container.innerHTML = '<p style="color:var(--text-muted); font-family:var(--font-mono);">// Veri bulunamadı.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            data.forEach(item => container.appendChild(createDevCard(item)));
+
+        } catch (error) {
+            console.error(`[Data Error] ${jsonPath} yüklenemedi:`, error);
+            container.innerHTML = `<p style="color:#e06c75; font-family:var(--font-mono); font-size:13px; padding:20px;">// Yükleme Hatası: ${error.message}</p>`;
+        }
+    }
+
+    // 5. Hakkında Yazısını Çekme ve Hero Alanına Yazma
+    async function loadAboutText() {
+        const aboutContainer = document.getElementById('about-text');
+
+        try {
+            const response = await fetch('./data/about.txt');
+            if (!response.ok) throw new Error(`HTTP Hatası! Durum: ${response.status}`);
+
+            loadedAboutText = await response.text();
+            if (aboutContainer) {
+                aboutContainer.textContent = loadedAboutText;
+            }
+        } catch (error) {
+            console.error('[About Error] about.txt yüklenemedi:', error);
+            if (aboutContainer) {
+                aboutContainer.textContent = loadedAboutText;
+            }
+        }
+    }
+
+    // Verileri Çağır
+    loadAboutText();
+    loadJsonData('./data/projects.json', 'projects-container');
+    loadJsonData('./data/posts.json', 'blog-container');
+
+    // 6. Modal İşlemleri
     const modalBackdrop = document.getElementById('modal-backdrop');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
 
     function openModal(item) {
-        const tagsHTML = item.tags 
+        if (!modalBackdrop || !modalContent) return;
+
+        const tagsHTML = (item.tags && Array.isArray(item.tags))
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join(' ') 
             : '';
 
         modalContent.innerHTML = `
             <div class="card-header-meta" style="margin-bottom: 10px;">
-                <strong>${item.type || 'Article.md'}</strong> // ${item.date}
+                <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
             </div>
-            <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #ffffff;">${item.title}</h2>
+            <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #ffffff;">${item.title || ''}</h2>
             <div style="margin-bottom: 16px;">${tagsHTML}</div>
             <div style="line-height: 1.6; color: var(--text-primary); font-size: 15px;">
-                ${item.details || item.summary}
+                ${item.details || item.summary || 'Açıklama bulunamadı.'}
             </div>
         `;
         modalBackdrop.style.display = 'flex';
     }
 
-    modalClose.addEventListener('click', () => modalBackdrop.style.display = 'none');
-    modalBackdrop.addEventListener('click', (e) => {
-        if (e.target === modalBackdrop) modalBackdrop.style.display = 'none';
-    });
+    // 7. #about Linkine Tıklandığında Modal Açılması
+    const aboutLink = document.getElementById('about-link');
+    if (aboutLink) {
+        aboutLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal({
+                type: 'Author.md',
+                date: '2026',
+                title: 'Abdurrahman // About Me',
+                tags: ['EMBEDDED', 'C#', 'HARDWARE', 'STM32'],
+                details: `<p>${loadedAboutText}</p>`
+            });
+        });
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener('click', () => modalBackdrop.style.display = 'none');
+    }
+    
+    if (modalBackdrop) {
+        modalBackdrop.addEventListener('click', (e) => {
+            if (e.target === modalBackdrop) modalBackdrop.style.display = 'none';
+        });
+    }
 });

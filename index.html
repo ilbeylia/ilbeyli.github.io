@@ -13,12 +13,12 @@
 </head>
 <body>
 
-    <!-- One Dark Preloader -->
+    <!-- Preloader -->
     <div id="preloader">
         <div class="loader-code"><span>&lt;</span>ilbeyli <span>/&gt;</span></div>
     </div>
 
-    <!-- IDE Header & Nav -->
+    <!-- Navigation -->
     <nav class="ide-nav">
         <div class="nav-content">
             <a href="#" class="nav-logo">
@@ -28,21 +28,19 @@
                 <span class="logo-text">ilbeyli.workspace</span>
             </a>
             <div class="nav-links">
-                <a href="#about"><span class="code-symbol">#</span>about</a>
-                <a href="#projects"><span class="code-symbol">#</span>projects</a>
-                <a href="#blog"><span class="code-symbol">#</span>blog</a>
+                <a href="#" id="about-link"><span class="code-symbol">#</span>about</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="about">
+    <section class="hero-section">
         <div class="hero-container">
             <div class="ide-line-prefix">01 // AUTHOR</div>
             <h2 class="hero-subtitle">Abdurrahman</h2>
             <h1 class="hero-title">Engineering at the hardware level<span class="cursor">_</span></h1>
-            <p class="hero-description">
-                Electrical & Electronics Engineer specializing in embedded systems, STM32, C#, C++, and desktop software.
+            <p class="hero-description" id="about-text">
+                Loading...
             </p>
         </div>
     </section>
@@ -53,16 +51,16 @@
         <button class="tab-btn" data-tab="blog"><span class="tab-icon">📝</span> Articles.md</button>
     </div>
 
-    <!-- Horizontal Cards Sections -->
+    <!-- Cards Content Sections -->
     <section class="section-container tab-content active" id="projects-section">
         <div class="horizontal-scroll-wrapper" id="projects-container">
-            <!-- Dynamic Cards Loaded via JS -->
+            <!-- Dynamic Projects -->
         </div>
     </section>
 
     <section class="section-container tab-content" id="blog-section">
         <div class="horizontal-scroll-wrapper" id="blog-container">
-            <!-- Dynamic Cards Loaded via JS -->
+            <!-- Dynamic Articles -->
         </div>
     </section>
 

@@ -1,14 +1,14 @@
 :root {
-    /* One Dark Pro Renk Paleti */
-    --bg-color: #21252b;          /* Soft Koyu Arkaplan */
-    --card-bg: #282c34;          /* Yumuşak Panel Rengi */
-    --card-border: #353b45;      /* İnce Kenarlık */
-    --text-primary: #abb2bf;     /* Yumuşak Açık Gri Yazı */
-    --text-muted: #5c6370;       /* Yorum/Pasif Rengi */
-    --accent-blue: #61afef;      /* Cyan/Mavi */
-    --accent-orange: #d19a66;    /* Turuncu */
-    --accent-green: #98c379;     /* Yeşil */
-    --code-bg: #1e2227;          /* Kod Alanı Arkaplanı */
+    /* One Dark Pro Palette */
+    --bg-color: #21252b;
+    --card-bg: #282c34;
+    --card-border: #353b45;
+    --text-primary: #abb2bf;
+    --text-muted: #5c6370;
+    --accent-blue: #61afef;
+    --accent-orange: #d19a66;
+    --accent-green: #98c379;
+    --code-bg: #1e2227;
     --font-sans: 'Inter', -apple-system, sans-serif;
     --font-mono: 'Fira Code', monospace;
 }
@@ -49,7 +49,7 @@ body {
     100% { opacity: 0; transform: scale(1.05); }
 }
 
-/* IDE Navigation */
+/* Navigation */
 .ide-nav {
     position: fixed; top: 0; width: 100%; height: 48px;
     background: rgba(33, 37, 43, 0.85); backdrop-filter: blur(16px);
@@ -69,7 +69,7 @@ body {
 .ide-dot.yellow { background: #e5c07b; }
 .ide-dot.green { background: #98c379; }
 
-.nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-mono); font-size: 12px; margin-left: 20px; transition: color 0.2s; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-family: var(--font-mono); font-size: 12px; margin-left: 20px; transition: color 0.2s; cursor: pointer; }
 .nav-links a:hover { color: var(--accent-blue); }
 .code-symbol { color: var(--accent-orange); margin-right: 2px; }
 
@@ -82,7 +82,7 @@ body {
 .cursor { animation: blink 1s infinite; color: var(--accent-orange); }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-/* IDE Tabs Switcher */
+/* Tab Control */
 .section-tabs { display: flex; justify-content: center; gap: 8px; margin: 36px 0 20px 0; }
 .tab-btn {
     border: 1px solid var(--card-border); background: var(--card-bg); font-size: 13px; font-family: var(--font-mono);
@@ -90,6 +90,9 @@ body {
     display: flex; align-items: center; gap: 6px;
 }
 .tab-btn.active { color: #ffffff; border-color: var(--accent-blue); background: #2c313a; font-weight: 600; }
+
+.tab-content { display: none !important; }
+.tab-content.active { display: block !important; }
 
 /* Horizontal Cards Scroll */
 .section-container { max-width: 100%; padding: 0 5vw 60px 5vw; }
@@ -103,9 +106,9 @@ body {
 .horizontal-scroll-wrapper::-webkit-scrollbar-track { background: rgba(0,0,0,0.15); border-radius: 10px; }
 .horizontal-scroll-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
 
-/* One Dark Kartlar */
+/* Cards Layout & Tilt Hover */
 .dev-card {
-    flex: 0 0 310px; height: 400px; background: var(--card-bg);
+    flex: 0 0 310px; height: 380px; background: var(--card-bg);
     border: 1px solid var(--card-border); border-radius: 16px; padding: 28px 24px;
     display: flex; flex-direction: column; justify-content: space-between;
     cursor: pointer; box-shadow: 0 10px 24px rgba(0,0,0,0.25);
@@ -114,7 +117,6 @@ body {
     user-select: none;
 }
 
-/* Hover'da Yumuşak Açılı Yükselme Efekti */
 .dev-card:hover {
     transform: translateY(-14px) rotate(-3deg) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -126,14 +128,10 @@ body {
 
 .card-main-title { font-size: 22px; font-weight: 800; line-height: 1.25; color: #ffffff; margin-top: 12px; letter-spacing: -0.01em; }
 
-.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; margin-bottom: 20px; }
+.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .card-tag-item { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--accent-orange); background: rgba(209, 154, 102, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(209, 154, 102, 0.2); }
 
-.card-author-info { display: flex; align-items: center; gap: 10px; }
-.card-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--card-border); }
-.card-author-name { font-size: 14px; font-weight: 700; color: #ffffff; }
-
-/* Modal Window */
+/* Modal */
 .modal-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
