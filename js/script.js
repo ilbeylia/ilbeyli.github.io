@@ -76,31 +76,49 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Resimli Kart Oluşturucu
+    // 3. Resimli & Özetli Kart Oluşturucu
     function createDevCard(item) {
         const card = document.createElement('div');
         card.className = 'dev-card';
         
         const title = getLangProp(item, 'title') || 'Untitled';
+        const summary = getLangProp(item, 'summary') || '';
+        
+        // Aktif dile göre "Devamı için tıklayın" metni
+        const readMoreText = currentLang === 'tr' ? 'Devamı için tıklayın...' : 'Click for details...';
+
         const tagsHTML = (item.tags && Array.isArray(item.tags))
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join('') 
             : '';
 
-        // Görsel yolu kontrolü ve HTML oluşturma
+        // Resim HTML Alanı (Başlığın hemen altında)
         const imageHTML = item.image 
             ? `<div class="card-image-wrapper"><img src="${item.image}" alt="${title}" loading="lazy" class="card-img" /></div>` 
             : '';
 
         card.innerHTML = `
-            <div>
-                ${imageHTML}
+            <div class="card-content-top">
+                <!-- Meta (Tür ve Tarih) -->
                 <div class="card-header-meta">
                     <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
                 </div>
+
+                <!-- Başlık -->
                 <h3 class="card-main-title">${title}</h3>
+
+                <!-- Resim -->
+                ${imageHTML}
             </div>
             
-            <div>
+            <div class="card-content-bottom">
+                <!-- Taglerin üstündeki boşluğa yerleşen Özet Metni -->
+                ${summary ? `
+                    <p class="card-summary-text">
+                        ${summary} <span class="card-read-more">${readMoreText}</span>
+                    </p>
+                ` : ''}
+
+                <!-- Etiketler (Tags) -->
                 <div class="card-tags">
                     ${tagsHTML}
                 </div>
@@ -175,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initApp();
 
-    // 6. Modal İşlemleri
+    // 6. Modal İşlemleri (Pop-up Penceresi)
     const modalBackdrop = document.getElementById('modal-backdrop');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
@@ -189,17 +207,17 @@ document.addEventListener('DOMContentLoaded', () => {
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join(' ') 
             : '';
 
-        // Modal içine de resmi ekleme
+        // Modal içi kapak resmi
         const modalImageHTML = item.image 
             ? `<div class="modal-image-wrapper"><img src="${item.image}" alt="${title}" class="modal-img" /></div>` 
             : '';
 
         modalContent.innerHTML = `
-            ${modalImageHTML}
             <div class="card-header-meta" style="margin-bottom: 10px;">
                 <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
             </div>
             ${title ? `<h2 style="font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #ffffff;">${title}</h2>` : ''}
+            ${modalImageHTML}
             ${tagsHTML ? `<div style="margin-bottom: 16px;">${tagsHTML}</div>` : ''}
             <div style="line-height: 1.6; color: var(--text-primary); font-size: 15px;">
                 ${details}

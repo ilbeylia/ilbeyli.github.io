@@ -115,17 +115,24 @@ body {
 
 /* Cards Layout & Tilt Hover */
 .dev-card {
-    flex: 0 0 310px; height: 380px; background: var(--card-bg);
-    border: 1px solid var(--card-border); border-radius: 16px; padding: 28px 24px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    cursor: pointer; box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    flex: 0 0 320px; 
+    min-height: 420px; 
+    background: var(--card-bg);
+    border: 1px solid var(--card-border); 
+    border-radius: 16px; 
+    padding: 20px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+    cursor: pointer; 
+    box-shadow: 0 10px 24px rgba(0,0,0,0.25);
     transform-origin: center center;
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.3s ease;
     user-select: none;
 }
 
 .dev-card:hover {
-    transform: translateY(-14px) rotate(-3deg) scale(1.02);
+    transform: translateY(-12px) rotate(-2deg) scale(1.02);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border-color: var(--accent-blue);
 }
@@ -133,9 +140,63 @@ body {
 .card-header-meta { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
 .card-header-meta strong { color: var(--accent-blue); font-weight: 600; }
 
-.card-main-title { font-size: 22px; font-weight: 800; line-height: 1.25; color: #ffffff; margin-top: 12px; letter-spacing: -0.01em; }
+.card-main-title { 
+    font-size: 20px; 
+    font-weight: 800; 
+    line-height: 1.3; 
+    color: #ffffff; 
+    margin: 8px 0 10px 0; 
+    letter-spacing: -0.01em; 
+}
 
-.card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+/* Kart Görsel Alanı (Başlığın Altında) */
+.card-image-wrapper {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: var(--code-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.dev-card:hover .card-img {
+    transform: scale(1.05);
+}
+
+/* Taglerin Üstünde Yer Alan Özet Metni */
+.card-summary-text {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    line-height: 1.45;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-read-more {
+    display: inline;
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.83rem;
+    margin-left: 2px;
+    white-space: nowrap;
+}
+
+.dev-card:hover .card-read-more {
+    text-decoration: underline;
+}
+
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
 .card-tag-item { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--accent-orange); background: rgba(209, 154, 102, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(209, 154, 102, 0.2); }
 
 /* Modal & Temaya Uygun Dikey Scrollbar */
@@ -149,6 +210,21 @@ body {
     background: var(--card-bg); border: 1px solid var(--card-border); width: 90%; max-width: 620px; max-height: 80vh;
     border-radius: 16px; padding: 32px; overflow-y: auto; position: relative;
     box-shadow: 0 24px 48px rgba(0,0,0,0.5);
+}
+
+.modal-image-wrapper {
+    width: 100%;
+    max-height: 280px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 14px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Chrome, Edge, Safari Özel Modal Scrollbar */
@@ -218,10 +294,7 @@ pre { background: var(--code-bg); padding: 14px; border-radius: 8px; border: 1px
     transform: translateY(0) scale(0.98);
 }
 
-/* ==========================================
-   RESPONSIVE (Mobil & Tablet) DÜZENLEMELER
-   ========================================== */
-
+/* RESPONSIVE (Mobil & Tablet) DÜZENLEMELER */
 @media (max-width: 768px) {
     .nav-content { padding: 0 16px; }
     .hero-section { padding-top: 90px; padding-bottom: 10px; }
@@ -231,15 +304,16 @@ pre { background: var(--code-bg); padding: 14px; border-radius: 8px; border: 1px
     .tab-btn { padding: 6px 12px; font-size: 12px; }
     .section-container { padding: 0 16px 40px 16px; }
     .horizontal-scroll-wrapper { gap: 14px; padding: 15px 5px; }
-    .dev-card { flex: 0 0 260px; height: 330px; padding: 20px 18px; }
+    .dev-card { flex: 0 0 280px; min-height: 390px; padding: 18px; }
     .card-main-title { font-size: 18px; }
+    .card-image-wrapper { height: 130px; }
     .modal-card { width: 95%; padding: 20px; max-height: 85vh; }
     .modal-card h2 { font-size: 20px !important; }
     .lang-switch-container { bottom: 16px; right: 16px; }
 }
 
 @media (max-width: 480px) {
-    .dev-card { flex: 0 0 82vw; height: 310px; }
+    .dev-card { flex: 0 0 85vw; min-height: 380px; }
     .hero-title { font-size: 24px; }
     .logo-text { font-size: 12px; }
 }

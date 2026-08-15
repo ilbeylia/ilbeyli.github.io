@@ -7,6 +7,7 @@
       "tr": "Bugün Seçtiğiniz Veri Tipi, Yarın Başınıza İş Açabilir.",
       "en": "The Data Type You Choose Today Might Cause Trouble Tomorrow."
     },
+    "image": "img/postImg1.png",
     "tags": ["DATABASE", "POSTGRESQL", "BACKEND"],
     "author": "ilbeyli",
     "avatar": "",
@@ -27,6 +28,7 @@
       "tr": "Her Şeyi Mikroservise Çevirmek Gerçekten İyi Bir Fikir mi?",
       "en": "Is Converting Everything to Microservices Really a Good Idea?"
     },
+    "image": "img/postImg2.png",
     "tags": ["MICROSERVICES", "ARCHITECTURE", "BACKEND"],
     "author": "ilbeyli",
     "avatar": "",
@@ -47,6 +49,7 @@
       "tr": "Bir Projeyi Asıl Yavaşlatan Şey Kod Değildir.",
       "en": "Code Is Rarely What Truly Slows Down a Project."
     },
+    "image": "",
     "tags": ["SOFTWARE", "PROJECT MANAGEMENT", "DEVELOPMENT"],
     "author": "ilbeyli",
     "avatar": "",
@@ -67,6 +70,7 @@
       "tr": "Kredi Kartıyla Yazılım Geliştirmek Mümkün mü?",
       "en": "Is It Possible to Develop Software with a Credit Card?"
     },
+    "image": "img/postImg4.png",
     "tags": ["TECHNICAL DEBT", "SOFTWARE", "DEVELOPMENT"],
     "author": "ilbeyli",
     "avatar": "",
