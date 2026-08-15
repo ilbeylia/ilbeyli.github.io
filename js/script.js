@@ -3,9 +3,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentLang = 'en'; // Varsayılan Dil
     let projectsData = [];
     let postsData = [];
-    let loadedAboutText = {
-        en: 'Electrical & Electronics Engineer specializing in embedded systems.',
-        tr: 'Gömülü sistemler üzerine uzmanlaşmış Elektrik & Elektronik Mühendisi.'
+    
+    // JSON'dan yüklenecek summary ve details verileri için varsayılan yapı
+    let loadedAbout = {
+        summary: {
+            en: 'Software Developer specializing in C# and ASP.NET Core ecosystem.',
+            tr: 'C# ve ASP.NET Core ekosisteminde uzmanlaşmış Yazılım Geliştirici.'
+        },
+        details: {
+            en: '<p>Loading details...</p>',
+            tr: '<p>Detaylar yükleniyor...</p>'
+        }
     };
 
     // Dil Sözlüğü (Arayüz Metinleri)
@@ -103,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // 4. JSON Verilerini Yükleme (En Son Eklenen En Başta Görünsün -> .reverse())
+    // 4. JSON Verilerini Yükleme
     async function fetchJsonData(jsonPath) {
         try {
             const response = await fetch(jsonPath);
@@ -139,25 +147,27 @@ document.addEventListener('DOMContentLoaded', () => {
         handleRoute(); // Sayfa ilk açıldığında Hash kontrolü
     }
 
-    // 5. Hakkında Yazısını Çekme
-    async function loadAboutText() {
+    // 5. Hakkında Verilerini JSON Olarak Çekme (Summary -> Giriş Ekranı, Details -> Modal)
+    async function loadAboutData() {
         const aboutContainer = document.getElementById('about-text');
         try {
-            const response = await fetch('./data/about.txt');
+            const response = await fetch('./data/about.json');
             if (response.ok) {
-                const text = await response.text();
-                loadedAboutText.en = text;
-                loadedAboutText.tr = text;
+                const data = await response.json();
+                if (data.summary) loadedAbout.summary = data.summary;
+                if (data.details) loadedAbout.details = data.details;
             }
         } catch (error) {
-            console.error('[About Error] about.txt okunamadı:', error);
+            console.error('[About Error] about.json okunamadı:', error);
         }
+
+        // Giriş ekranında (Hero bölümünde) özet metni göster
         if (aboutContainer) {
-            aboutContainer.textContent = loadedAboutText[currentLang];
+            aboutContainer.textContent = loadedAbout.summary[currentLang] || loadedAbout.summary['en'];
         }
     }
 
-    loadAboutText();
+    loadAboutData();
     loadAllData();
 
     // 6. Modal İşlemleri & URL Hash Yönlendirmesi
@@ -178,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="card-header-meta" style="margin-bottom: 10px;">
                 <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
             </div>
-            <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #ffffff;">${title}</h2>
-            <div style="margin-bottom: 16px;">${tagsHTML}</div>
+            ${title ? `<h2 style="font-size: 24px; font-weight: 800; margin-bottom: 12px; color: #ffffff;">${title}</h2>` : ''}
+            ${tagsHTML ? `<div style="margin-bottom: 16px;">${tagsHTML}</div>` : ''}
             <div style="line-height: 1.6; color: var(--text-primary); font-size: 15px;">
                 ${details}
             </div>
@@ -199,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Hakkında Linkine Tıklama
+    // 7. Hakkında Linkine Tıklama (Popup İçeriği)
     const aboutLink = document.getElementById('about-link');
     if (aboutLink) {
         aboutLink.addEventListener('click', (e) => {
@@ -209,13 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openAboutModal(updateHash = true) {
+        const detailHTML = loadedAbout.details[currentLang] || loadedAbout.details['en'];
         openModal({
             id: 'about',
             type: 'Author.md',
             date: '2026',
-            title: currentLang === 'tr' ? 'Abdurrahman // Hakkımda' : 'Abdurrahman // About Me',
-            tags: ['EMBEDDED', 'C#', 'HARDWARE', 'STM32'],
-            details: `<p>${loadedAboutText[currentLang]}</p>`
+            details: detailHTML
         }, updateHash);
     }
 
@@ -277,9 +286,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Hero Alanı Hakkında Metni
+                // Hero Alanındaki Özet Metnini Güncelle
                 const aboutContainer = document.getElementById('about-text');
-                if (aboutContainer) aboutContainer.textContent = loadedAboutText[currentLang];
+                if (aboutContainer) {
+                    aboutContainer.textContent = loadedAbout.summary[currentLang] || loadedAbout.summary['en'];
+                }
 
                 // Kartları Yeniden Çiz
                 renderContainer('projects-container', projectsData);
