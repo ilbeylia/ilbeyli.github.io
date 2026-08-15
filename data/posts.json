@@ -2,23 +2,45 @@
   {
     "id": "post-1",
     "type": "Article.md",
-    "date": "Jun 30, 2026",
-    "title": "The Shifting Line Between CSS States and JavaScript Events",
-    "tags": ["CSS", "STATE", "IDE-UX"],
-    "author": "Daniel Schwarz",
-    "avatar": "https://i.pravatar.cc/100?img=12",
-    "summary": "Modern web mimarisinde durum yönetiminin CSS ve JS arasındaki dağılımı.",
-    "details": "<p>CSS pseudo-class yapılarının gelişimi ile JavaScript olay yükünün nasıl hafifletildiğini inceliyoruz.</p>"
+    "date": "Aug 15, 2025",
+    "title": "Bugün Seçtiğiniz Veri Tipi, Yarın Başınıza İş Açabilir.",
+    "tags": ["DATABASE", "POSTGRESQL", "BACKEND"],
+    "author": "ilbeyli",
+    "avatar": "",
+    "summary": "Veritabanında yapılan küçük veri tipi seçimlerinin, sistem büyüdükçe nasıl büyük problemlere dönüşebileceğini ele alıyoruz.",
+    "details": "<h2>Bugün Seçtiğiniz Veri Tipi, Yarın Başınıza İş Açabilir. </h2><p>Bir veritabanı tasarlarken çoğu zaman kolonun adını düşünürüz.</p><p><code>user_id</code><br><code>email</code><br><code>created_at</code></p><p>Ancak asıl önemli sorulardan biri bazen gözden kaçar:</p><p><strong>Bu alanın veri tipi ne olmalı?</strong></p><p><code>integer</code> mı?<br><code>bigint</code> mi?<br><code>uuid</code> mi?<br><code>varchar</code> mı?<br><code>timestamp</code> mı?</p><p>İlk bakışta küçük bir karar gibi görünebilir. Ancak veritabanı büyüdükçe bu seçimlerin etkisi de büyür.</p><p>Örneğin bir ID için <code>integer</code> seçmek başlangıçta fazlasıyla yeterli olabilir. Ancak sistem büyüdüğünde kayıt sayısı, farklı sistemlerle entegrasyonlar veya dağıtık yapılar devreye girdiğinde bu kararın sınırlarıyla karşılaşabilirsiniz.</p><p>Benzer şekilde her metni <code>varchar</code> yapmak, her ID'yi <code>integer</code> olarak tanımlamak veya tarihleri metin olarak saklamak kısa vadede işleri kolaylaştırabilir.</p><p>Fakat uzun vadede bu seçimler; sorgu performansı, indeks boyutları, veri bütünlüğü, sistemler arası uyumluluk ve migration süreçleri gibi konularda karşımıza çıkabilir.</p><p>Buradaki mesele “Hep UUID kullanın” veya “Her yerde bigint kullanın” demek değil.</p><p><strong>Doğru veri tipi, projenin ihtiyacına göre seçilmelidir.</strong></p><p>Bir alanın bugün kaç kayıt tutacağı kadar, yarın nasıl kullanılacağı da düşünülmelidir. Bu nedenle veritabanı tasarımında veri tipi seçimi sadece teknik bir detay değil, sistemin geleceğini etkileyen bir mimari karardır.</p><p>Çünkü veritabanı tasarımında bazı kararları sonradan değiştirmek, kod tarafındaki basit bir değişiklik kadar kolay değildir.</p><p><strong>Veritabanında küçük görünen kararlar, sistem büyüdükçe büyük kararlara dönüşür.</strong> 🗄️💻</p>"
   },
   {
     "id": "post-2",
     "type": "Article.md",
-    "date": "Jun 18, 2026",
-    "title": "The Siren Song of ariaNotify()",
-    "tags": ["ACCESSIBILITY", "JS"],
-    "author": "Mat Marquis",
-    "avatar": "https://i.pravatar.cc/100?img=60",
-    "summary": "Erişilebilirlik bildirimlerinde yeni nesil ariaNotify metodunun kullanımı.",
-    "details": "<p>Ekran okuyucular için dinamik içerik güncellemelerinde yaşanan erişilebilirlik çözümleri.</p>"
+    "date": "Jan 15, 2026",
+    "title": "Her Şeyi Mikroservise Çevirmek Gerçekten İyi Bir Fikir mi?",
+    "tags": ["MICROSERVICES", "ARCHITECTURE", "BACKEND"],
+    "author": "ilbeyli",
+    "avatar": "",
+    "summary": "Mikroservis mimarisinin avantajları kadar beraberinde getirdiği karmaşıklığı ve doğru mimari kararın nasıl verilmesi gerektiğini ele alıyoruz.",
+    "details": "<h2>Her Şeyi Mikroservise Çevirmek Gerçekten İyi Bir Fikir mi? </h2><p>Son yıllarda mikroservis mimarisi, ölçeklenebilir ve modern sistemlerin vazgeçilmezlerinden biri gibi görülüyor.</p><p>Peki gerçekten her proje mikroservis kullanmalı mı?</p><p>Bir projeye başlarken <strong>“Mikroservis yapalım, ileride büyürüz.”</strong> demek kulağa oldukça mantıklı gelebilir.</p><p>Ancak her yeni servis beraberinde yeni bir sorumluluk getirir.</p><p>Ayrı deployment süreçleri, servisler arası iletişim, authentication, logging, monitoring, hata yönetimi ve network problemleri derken sistemdeki operasyonel karmaşıklık da artmaya başlar.</p><p>Başlangıçta birkaç modülden oluşan basit bir uygulama, zamanla birçok servisin birbirleriyle konuştuğu ve yönetilmesi gereken daha büyük bir yapıya dönüşebilir.</p><p>Özellikle küçük veya orta ölçekli bir projede, tek bir uygulamanın çözebileceği problemi onlarca servise bölmek; beklenen faydadan çok operasyonel yük oluşturabilir.</p><p>Bu yüzden mesele sadece <strong>“Mikroservis mi, monolith mi?”</strong> sorusu değildir.</p><p>Asıl soru şudur:</p><p><strong>“Projemin şu an gerçekten neye ihtiyacı var?”</strong></p><p>Monolith ile başlamak kötü bir mimari değildir. Aynı şekilde mikroservis kullanmak da tek başına iyi bir mimari anlamına gelmez.</p><p>Mimari karar verirken ekip büyüklüğü, projenin ölçeği, deployment ihtiyaçları, bağımsız ölçekleme gereksinimi ve operasyonel kapasite birlikte değerlendirilmelidir.</p><p>Çünkü bazen en doğru çözüm, daha fazla servis oluşturmak değil; mevcut sistemi daha sade ve anlaşılır tutmaktır.</p><p><strong>İyi mimari, en fazla teknolojiyi kullanan değil; ihtiyacınız kadar karmaşıklık oluşturan mimaridir.</strong> 🧩💻</p>"
+  },
+  {
+    "id": "post-3",
+    "type": "Article.md",
+    "date": "Mar 20, 2026",
+    "title": "Bir Projeyi Asıl Yavaşlatan Şey Kod Değildir.",
+    "tags": ["SOFTWARE", "PROJECT MANAGEMENT", "DEVELOPMENT"],
+    "author": "ilbeyli",
+    "avatar": "",
+    "summary": "Bir yazılım projesinin yavaşlamasının arkasında her zaman kötü kod değil; belirsiz gereksinimler, iletişim ve yanlış süreçler olabilir.",
+    "details": "<h2>Bir Projeyi Asıl Yavaşlatan Şey Kod Değildir. </h2><p>Bir yazılım projesi yavaşladığında ilk baktığımız yer genellikle koddur.</p><p>“Acaba kod mu kötü?”<br>“Performans problemi mi var?”<br>“Daha iyi bir mimari mi kullanmalıydık?”</p><p>Bunlar elbette önemli sorular. Ancak bazen problem kodda değil, <strong>kodun yazılmasına neden olan süreçtedir.</strong></p><p>Belirsiz gereksinimler, sürekli değişen talepler, yanlış önceliklendirme ve iletişim eksikliği; geliştiricinin aynı işi defalarca yapmasına neden olabilir.</p><p>Örneğin bir özellik geliştirilmeye başlanır. Sonra gereksinim değişir. API değişir, veritabanı değişir, arayüz yeniden düzenlenir ve daha önce yazılan kodun bir kısmı tekrar ele alınır.</p><p>Sonuç?</p><p><strong>Kod yazılmıştır ama proje ilerlememiştir.</strong></p><p>Bu durum yalnızca geliştiricinin zamanını değil, projenin toplam maliyetini de artırır. Çünkü yapılan işin bir kısmı yeni değer üretmek yerine önceki kararları düzeltmek için harcanır.</p><p>Bu yüzden yazılım geliştirmede hız sadece <strong>ne kadar hızlı kod yazdığımızla</strong> ölçülmemeli.</p><p>Asıl soru şu olmalı:</p><p><strong>Doğru problemi mi çözüyoruz ve bunu ilk seferde ne kadar doğru yapıyoruz?</strong></p><p>İyi bir süreç; geliştiriciyi daha hızlı kod yazmaya değil, <strong>daha az gereksiz kod yazmaya</strong> yönlendirir.</p><p>Gereksinimleri netleştirmek, doğru iletişim kurmak ve öncelikleri belirlemek bazen birkaç saat daha fazla planlama gerektirebilir.</p><p>Ama bu süre, yanlış bir özelliği günlerce geliştirmekten çok daha ucuz olabilir.</p><p>Çünkü bazen bir projeyi hızlandırmanın en iyi yolu daha fazla kod yazmak değil, <strong>yanlış kodu hiç yazmamaktır.</strong> 🐌💻</p>"
+  },
+  {
+    "id": "post-4",
+    "type": "Article.md",
+    "date": "Aug 15, 2026",
+    "title": "Kredi Kartıyla Yazılım Geliştirmek Mümkün mü?",
+    "tags": ["TECHNICAL DEBT", "SOFTWARE", "DEVELOPMENT"],
+    "author": "ilbeyli",
+    "avatar": "",
+    "summary": "Teknik borcun neden oluştuğunu, ne zaman sorun haline geldiğini ve yazılım projelerinde nasıl yönetilebileceğini ele alıyoruz.",
+    "details": "<h2>Kredi Kartıyla Yazılım Geliştirmek Mümkün mü? </h2><p>Bir projeyi yetiştirme telaşıyla;</p><blockquote>“Şimdilik böyle kalsın, canlıya çıkalım. Sonra düzeltiriz.”</blockquote><p>cümlesini hepimiz en az bir kez kurmuşuzdur.</p><p>Aslında bu cümle, yazılım dünyasındaki <strong>teknik borcun</strong> en basit tanımlarından biri.</p><p>Ama burada önemli bir ayrım var:</p><p><strong>Her teknik borç, yazılımcının kötü kod yazmasından kaynaklanmaz.</strong></p><p>Bazen teslim tarihi yakındır. Bazen müşteri talebi değişir. Bazen pazara rakiplerden önce çıkmak gerekir. Bazen de işin ticari tarafı, teknik taraftan daha hızlı hareket etmek zorundadır.</p><p>Bu noktada hızlı bir çözüm tercih etmek yanlış olmayabilir.</p><p>Çünkü teknik borç, tıpkı kredi kartı gibi düşünülebilir.</p><p>Bugün ihtiyacınız olan işi hızlıca yaparsınız, ürünü zamanında çıkarırsınız ve kısa vadede kazanırsınız.</p><p><strong>Ama borcun kendisi kadar, faizini de hesaba katmanız gerekir.</strong></p><p>Asıl problem borç almak değil, <strong>aldığınız borcun farkında olmamak ve geri ödeme planı yapmamaktır.</strong></p><p>Borç biriktikçe küçük bir özellik günler sürebilir. Bir hatayı düzeltirken sistemin başka bir bölümü bozulabilir. Yeni özellik geliştirmek yerine eski kodu ayakta tutmaya daha fazla zaman harcanabilir.</p><p>Ekip de zamanla yeni değer üretmek yerine sürekli yangın söndüren bir yapıya dönüşebilir.</p><p>Peki bunu nasıl yönetebiliriz?</p><p><strong>Teknik borcu görünür hale getirebiliriz.</strong></p><p>“Sonra düzeltiriz” dediğimiz her şeyi gerçekten bir yere yazmak önemli. Refactoring, eksik testler, geçici çözümler ve iyileştirilmesi gereken mimari kararlar backlog içerisinde takip edilebilir birer teknik borç maddesi olabilir.</p><p><strong>İş birimiyle maliyeti konuşabiliriz.</strong></p><p>“Bunu şimdi hızlı yapabiliriz ancak ileride geliştirme süresini artırabilir.” diyebilmek, teknik borcu iş tarafının da anlayabileceği bir maliyet ve risk haline getirir.</p><p><strong>Geçici çözümleri izole edebiliriz.</strong></p><p>Her hızlı çözüm kötü değildir. Ancak geçici olduğunu bildiğimiz kodu sistemin her yerine yaymak yerine, mümkün olduğunca sınırlandırmak ve ileride kolayca değiştirebileceğimiz şekilde tasarlamak gerekir.</p><p>Ve belki de en önemlisi:</p><p><strong>Hızlı geliştirmek ile kalitesiz geliştirmek aynı şey değildir.</strong></p><p>Bazen hızlı çıkmak doğru karardır. Bazen teknik borç almak da doğru karardır.</p><p>Önemli olan bunun bilinçli bir karar olması, maliyetinin bilinmesi ve ne zaman geri ödeneceğinin planlanmasıdır.</p><p>Çünkü yazılımda da kredi kartında olduğu gibi:</p><p><strong>Asıl tehlike borçlanmak değil, borcun faizini görmezden gelmektir.</strong> 💳💻</p>"
   }
 ]
