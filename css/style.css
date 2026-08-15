@@ -151,3 +151,80 @@ body {
 }
 
 pre { background: var(--code-bg); padding: 14px; border-radius: 8px; border: 1px solid var(--card-border); font-family: var(--font-mono); font-size: 13px; margin: 12px 0; overflow-x: auto; color: #ffffff; }
+
+/* ==========================================
+   RESPONSIVE (Mobil & Tablet) DÜZENLEMELER
+   ========================================== */
+
+@media (max-width: 768px) {
+    .nav-content {
+        padding: 0 16px;
+    }
+
+    .hero-section {
+        padding-top: 90px;
+        padding-bottom: 10px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+        padding: 0 16px;
+    }
+
+    .section-tabs {
+        margin: 24px 0 12px 0;
+    }
+
+    .tab-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .section-container {
+        padding: 0 16px 40px 16px;
+    }
+
+    .horizontal-scroll-wrapper {
+        gap: 14px;
+        padding: 15px 5px;
+    }
+
+    .dev-card {
+        flex: 0 0 260px;
+        height: 330px;
+        padding: 20px 18px;
+    }
+
+    .card-main-title {
+        font-size: 18px;
+    }
+
+    .modal-card {
+        width: 95%;
+        padding: 20px;
+        max-height: 85vh;
+    }
+
+    .modal-card h2 {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .dev-card {
+        flex: 0 0 82vw;
+        height: 310px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .logo-text {
+        font-size: 12px;
+    }
+}
