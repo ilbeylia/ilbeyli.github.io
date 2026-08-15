@@ -2,11 +2,12 @@
   {
     "id": "project-1",
     "type": "Project.cs",
-    "date": "Aug 2026",
+    "date": "Jan 2025",
     "title": {
       "en": "Ilbeyli v2.0 Control Card",
       "tr": "Ilbeyli v2.0 Kontrol Kartı"
     },
+    "image": "img/project1.jpg",
     "tags": ["STM32", "EMBEDDED", "HARDWARE"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",
@@ -22,11 +23,12 @@
   {
     "id": "project-2",
     "type": "App.cs",
-    "date": "Jul 2026",
+    "date": "Mar 2025",
     "title": {
       "en": "KeyStrVis Visualizer",
       "tr": "KeyStrVis Görselleştirici"
     },
+    "image": "img/project2.jpg",
     "tags": ["C#", "DESKTOP", "WPF"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",
@@ -42,11 +44,12 @@
   {
     "id": "project-3",
     "type": "Vision.py",
-    "date": "Jun 2026",
+    "date": "Jun 2025",
     "title": {
       "en": "Qt OCR & PDF Tool",
       "tr": "Qt OCR & PDF Aracı"
     },
+    "image": "img/project3.jpg",
     "tags": ["PYTHON", "OPENCV", "QT"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",

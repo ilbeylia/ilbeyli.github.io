@@ -4,27 +4,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let projectsData = [];
     let postsData = [];
     
-    // JSON'dan yüklenecek summary ve details verileri için varsayılan yapı
+    // JSON'dan yüklenecek summary ve details verileri
     let loadedAbout = {
-        summary: {
-            en: 'Software Developer specializing in C# and ASP.NET Core ecosystem.',
-            tr: 'C# ve ASP.NET Core ekosisteminde uzmanlaşmış Yazılım Geliştirici.'
-        },
-        details: {
-            en: '<p>Loading details...</p>',
-            tr: '<p>Detaylar yükleniyor...</p>'
-        }
+        summary: { en: '', tr: '' },
+        details: { en: '', tr: '' }
     };
 
     // Dil Sözlüğü (Arayüz Metinleri)
     const dictionary = {
         en: {
             "nav.about": "about",
-            "hero.title": "Engineering at the hardware level"
+            "hero.title": "Backend & Software Architecture"
         },
         tr: {
             "nav.about": "hakkımda",
-            "hero.title": "Donanım seviyesinde mühendislik"
+            "hero.title": "Backend & Yazılım Mimarisi"
         }
     };
 
@@ -82,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Efektli Kart Oluşturucu
+    // 3. Resimli Kart Oluşturucu
     function createDevCard(item) {
         const card = document.createElement('div');
         card.className = 'dev-card';
@@ -92,8 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join('') 
             : '';
 
+        // Görsel yolu kontrolü ve HTML oluşturma
+        const imageHTML = item.image 
+            ? `<div class="card-image-wrapper"><img src="${item.image}" alt="${title}" loading="lazy" class="card-img" /></div>` 
+            : '';
+
         card.innerHTML = `
             <div>
+                ${imageHTML}
                 <div class="card-header-meta">
                     <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
                 </div>
@@ -137,19 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dataList.forEach(item => container.appendChild(createDevCard(item)));
     }
 
-    async function loadAllData() {
-        projectsData = await fetchJsonData('./data/projects.json');
-        postsData = await fetchJsonData('./data/posts.json');
-
-        renderContainer('projects-container', projectsData);
-        renderContainer('blog-container', postsData);
-
-        handleRoute(); // Sayfa ilk açıldığında Hash kontrolü
-    }
-
-    // 5. Hakkında Verilerini JSON Olarak Çekme (Summary -> Giriş Ekranı, Details -> Modal)
+    // 5. Hakkında Verilerini JSON Olarak Çekme
     async function loadAboutData() {
-        const aboutContainer = document.getElementById('about-text');
         try {
             const response = await fetch('./data/about.json');
             if (response.ok) {
@@ -160,17 +149,33 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('[About Error] about.json okunamadı:', error);
         }
+        updateHeroSummary();
+    }
 
-        // Giriş ekranında (Hero bölümünde) özet metni göster
+    function updateHeroSummary() {
+        const aboutContainer = document.getElementById('about-text');
         if (aboutContainer) {
-            aboutContainer.textContent = loadedAbout.summary[currentLang] || loadedAbout.summary['en'];
+            const text = loadedAbout.summary[currentLang] || loadedAbout.summary['en'] || loadedAbout.summary['tr'];
+            aboutContainer.textContent = text || 'Loading...';
         }
     }
 
-    loadAboutData();
-    loadAllData();
+    // Tüm Verileri Yükleme Süreci
+    async function initApp() {
+        await loadAboutData();
+        
+        projectsData = await fetchJsonData('./data/projects.json');
+        postsData = await fetchJsonData('./data/posts.json');
 
-    // 6. Modal İşlemleri & URL Hash Yönlendirmesi
+        renderContainer('projects-container', projectsData);
+        renderContainer('blog-container', postsData);
+
+        handleRoute();
+    }
+
+    initApp();
+
+    // 6. Modal İşlemleri
     const modalBackdrop = document.getElementById('modal-backdrop');
     const modalContent = document.getElementById('modal-content');
     const modalClose = document.getElementById('modal-close');
@@ -184,7 +189,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ? item.tags.map(tag => `<span class="card-tag-item">${tag}</span>`).join(' ') 
             : '';
 
+        // Modal içine de resmi ekleme
+        const modalImageHTML = item.image 
+            ? `<div class="modal-image-wrapper"><img src="${item.image}" alt="${title}" class="modal-img" /></div>` 
+            : '';
+
         modalContent.innerHTML = `
+            ${modalImageHTML}
             <div class="card-header-meta" style="margin-bottom: 10px;">
                 <strong>${item.type || 'Article.md'}</strong> // ${item.date || ''}
             </div>
@@ -209,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 7. Hakkında Linkine Tıklama (Popup İçeriği)
+    // 7. Hakkında Modalını Açma
     const aboutLink = document.getElementById('about-link');
     if (aboutLink) {
         aboutLink.addEventListener('click', (e) => {
@@ -219,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openAboutModal(updateHash = true) {
-        const detailHTML = loadedAbout.details[currentLang] || loadedAbout.details['en'];
+        const detailHTML = loadedAbout.details[currentLang] || loadedAbout.details['en'] || loadedAbout.details['tr'];
         openModal({
             id: 'about',
             type: 'Author.md',
@@ -238,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 8. Hash / Derin Link Kontrolü
+    // 8. Hash Kontrolü
     function handleRoute() {
         const hash = window.location.hash.replace('#', '');
         if (!hash) return;
@@ -265,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('hashchange', handleRoute);
 
-    // 9. Dil Değiştirme (TR / EN) ve Animasyon
+    // 9. Dil Değiştirme
     const langBtn = document.getElementById('langToggleBtn');
     const langLabel = document.getElementById('langLabel');
 
@@ -274,11 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
             currentLang = currentLang === 'en' ? 'tr' : 'en';
             if (langLabel) langLabel.textContent = currentLang.toUpperCase();
 
-            // Geçiş Animasyonu
             document.body.classList.add('i18n-animating');
 
             setTimeout(() => {
-                // Arayüz metinlerini güncelle
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (dictionary[currentLang] && dictionary[currentLang][key]) {
@@ -286,18 +295,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Hero Alanındaki Özet Metnini Güncelle
-                const aboutContainer = document.getElementById('about-text');
-                if (aboutContainer) {
-                    aboutContainer.textContent = loadedAbout.summary[currentLang] || loadedAbout.summary['en'];
-                }
-
-                // Kartları Yeniden Çiz
+                updateHeroSummary();
                 renderContainer('projects-container', projectsData);
                 renderContainer('blog-container', postsData);
 
-                // Eğer Modal Açıksa İçeriğini Yeni Dile Göre Güncelle
-                if (window.location.hash) {
+                if (window.location.hash === '#about') {
+                    openAboutModal(false);
+                } else if (window.location.hash) {
                     handleRoute();
                 }
 
