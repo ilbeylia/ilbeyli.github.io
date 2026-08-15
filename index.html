@@ -1,214 +1,79 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
-    <title>ilbeyli</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ilbeyli // One Dark Workspace</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <img src="img/background.jpg" alt="Background Image" style="position: fixed; z-index: -1; width: 100%; height: 100%; object-fit: cover;  top: 0;">
-    <header>
-        <div class="container-flex">
-            <div class="row">
-                <div class="col align-self-start">
-                    <img src="img/MainImg.png" style="width: 350px; opacity: 0.95;" alt="ilbeyli">
-                </div>
-                <div class="col-11 align-self-end" style="margin: auto;">
-                  <div class="content" style="margin: 0 auto; margin-bottom: 10px;">
-                    <div class="content__container">
-                      <div class="content__text">Hello,</div>
-                      <ul class="content__list">
-                        <li class="content__item">World!</li>
-                        <li class="content__item">Everyone!</li>
-                        <li class="content__item">User!</li>
-                        <li class="content__item">There!</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="border-container">
-                    <p class="text-style"> >><span class="text-style-y">ABOUT ME:</span> [ I'm Abdurrahman! 
-                      I am an electrical electronics engineer specializing <span class="text-style-b">in</span> embedded systems, with experience <span class="text-style-o">and</span> knowledge <span class="text-style-b">in</span> image processing, circuit, <span class="text-style-o">and</span> PCB design. Additionally, 
-                      I develop Windows applications. ]</p>
-                      <p class="text-style">>> <span class="text-style-y">INTERESTS:</span> [ I have a keen interest <span class="text-style-b">in</span> science, technology, games, <span class="text-style-o">and</span> enjoy traveling <span class="text-style-o">and</span> camping. ]</p>              
-                      <p class="text-style">>> <span class="text-style-y">SKILLS:</span> [ I work <span class="text-style-b">on</span> projects <span class="text-style-b">using</span> programming languages such <span class="text-style-b">as</span> C#, C, C++, <span class="text-style-o">and</span> Python. ]</p>
-                      <p class="text-style">>><span class="text-style-y">CURRENTLY WORKING ON:</span> [ ESP, STM microcontrollers, image processing, <span class="text-style-o">and</span> machine learning. ]</p>
-                      <p class="text-style">>><span class="text-style-y">FEEL FREE TO CONTACT ME:</span> [ If you have any questions <span class="text-style-o">or</span> something <span class="text-style-b">on</span> your mind, you can reach out <span class="text-style-b">to me</span>. ]</p>
-                      <p class="text-style">>><span class="text-style-y">HAVE A GREAT DAY!</span></p>
-                  </div>
-                    
-                </div>
-            </div>
 
+    <!-- One Dark Preloader -->
+    <div id="preloader">
+        <div class="loader-code"><span>&lt;</span>ilbeyli <span>/&gt;</span></div>
+    </div>
 
-
-        </div>
-
-
-    </header>
-
-    <main>
-        <div class="row">
-            <h2>Some of my projects</h2>
-        </div>
-        <div class="accordion accordion-flush"  id="accordionFlushExample">
-            <div class="accordion-item" style="color: #414142d5;">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-1" aria-expanded="false" aria-controls="flush-1">
-                  Ilbeyli v.2.0 Control Card
-                </button>
-              </h2>
-              <div id="flush-1" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <div class="container-flex">
-                    <div class="row">
-                      <img src="img/CC1.png" alt="Control Card" style="width: 250px; height: 200px; margin: 0 auto 5px auto;">
-                      <div class="col-10" style="margin: auto;">
-                        <h3>Ilbeyli v2.0 Control Card</h3>
-                        <p>The Ilbeyli v2.0 control card is a powerful microcontroller-based control board designed for integration with a wide range of motors and sensors. 
-                          This board is intended for various industrial and hobby applications such as CNC machines, 
-                          laser cutting machines, 3D printers, robots, and other automation projects. The Ilbeyli v2.0 control card features the following:</p>
-                        <ul>
-                          <li><span  style="font-weight: bold;">STM32F411 Microcontroller:</span> Equipped with a high-performance ARM Cortex-M4 processor, the Ilbeyli v2.0 offers fast data processing capabilities and a large memory capacity.</li>
-                          <li><span style="font-weight: bold;">Step Motor Drivers:</span>  Provided to control high-torque stepper motors compatible with drivers such as TB6600, DRV8825, A4988, enabling precise motion control 
-                            for applications like CNC machines and 3D printers.</li>
-                          <li><span style="font-weight: bold;">Servo Motor Connections:</span> Connection points are available for servo motors, allowing for precise and accurate position control suitable for robotics applications and manipulators.</li>
-                          <li><span style="font-weight: bold;">Linear Motor Connections:</span> The Ilbeyli v2.0 provides necessary connection points for controlling linear motors, essential for applications requiring fast and accurate linear movements.</li>
-                          <li><span style="font-weight: bold;">Nextion Screen Support:</span> Compatible with Nextion touchscreens, facilitating interactive user interface development for easy project control and monitoring.</li>
-                          <li><span style="font-weight: bold;">Wide Range of Connection Options:</span> The Ilbeyli v2.0 control card offers a wide range of pin options, allowing for easy integration of sensors, additional motors, or other components.</li>
-                        </ul>
-                        <h4>Applications:</h4>
-                        <ul>
-                          <li>CNC machines</li>
-                          <li>3D printers</li>
-                          <li>Laser cutting machines</li>
-                          <li>Robotic arms and manipulators</li>
-                          <li>Automation systems</li>
-                          <li>Process control systems</li>
-                        </ul>
-                        <h4>Benefits:</h4>
-                        <ul>
-                          <li>High-performance microcontroller</li>
-                          <li>Wide range of connection options</li>
-                          <li>Precise motion control</li>
-                          <li>Easy integration and programming</li>
-                          <li>Suitable for various industrial and hobby applications</li>
-                        </ul>
-                        <p>The Ilbeyli v2.0 control card provides a robust platform offering flexibility and reliability for a wide range of applications. It serves as an ideal solution for CNC machines,
-                          laser cutting machines, robots, and other automation projects.</p>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-2" aria-expanded="false" aria-controls="flush-2">
-                  Keyboard Stroke Visualizer
-                </button>
-              </h2>
-              <div id="flush-2" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <div class="container-flex">
-                    <div class="row">
-                      <img src="img/KeyStrVis.jpg" style="width: 250px; height: 250px; margin: 0 auto 5px auto;">
-                      <div class="col-10" style="margin: auto;">
-                        <h3>KeyStrVis - Keyboard Stroke Visualizer</h3>
-                        <p>KeyStrVis is a keyboard stroke visualizer that provides a dynamic and engaging representation of your typing activity. Whether you are a content creator, programmer, or just curious
-                          about your typing patterns, KeyStrVis offers a visually appealing way to explore and analyze your keyboard input.</p>
-
-                        <h4>Features</h4>
-                        <ul>
-                          <li>Real-time visualization of key presses and releases.</li>
-                          <li>Customizable color schemes.</li>
-                          <li>Support for various keyboard layouts.</li>
-                          <li>Adjustable playback speed for replaying typing sessions.</li>
-                          <li>Export and share your visualized typing sessions.</li>
-                        </ul>
-                        <p>This project is being developed to the extent my spare time allows. The project is in progress, but color changes and themes are being developed.</p>
-                        
-                      </div>
-                      <img src="img/KeypadStrokeVisualizer.png" style="width: 250px; height: 100px; margin: 0 auto 0 auto;"  >
-                      <img src="img/MainWindowSetting.png" style="width: 360px; margin: 0 auto 0 auto;">
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-3" aria-expanded="false" aria-controls="flush-3">
-                  Control And Data Manager
-                </button>
-              </h2>
-              <div id="flush-3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <div class="col-10" style="margin: auto;">
-                    <h3>Control And Data Manager</h3>
-                    <p>The main purpose of Control and Data Manager (CDM) is to facilitate data exchange with devices that need to be controlled in industrial facilities,
-                       factories, and similar environments, and to effectively manage this data. While the main module connects to the network via Ethernet, providing 
-                       extensive control capabilities, the Control and Data Modules can communicate with the main module via WiFi to exchange data with various devices. 
-                       Additionally, the Control and Data modules can perform data exchange without using the main module through a user interface over WiFi, allowing for 
-                       flexible usage depending on the requirements. With Control and Data Manager (CDM), it becomes possible to monitor, control, and optimize production 
-                        processes.</p>
-  
-                    <h4>Industrial applications of Control and Data Manager (CDM) may include:</h4>
-                    <ul>
-                      <li>Automation and monitoring of production lines.</li>
-                      <li>Collection and processing of sensor data.</li>
-                      <li>Remote monitoring and control of machinery and equipment.</li>
-                      <li>Energy management and optimization.</li>
-                      <li>Industrial Internet of Things (IoT) applications.</li>
-                      <li>Data collection and analysis systems.</li>
-                      <li>Security systems and early warning systems.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-4" aria-expanded="false" aria-controls="flush-4">
-                  Qt desinger and OCR project
-                </button>
-              </h2>
-              <div id="flush-4" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <div class="container-flex">
-                    <div class="row">
-                      <img src="img/OCR_interface.png" style="width: 250px; height: auto; margin: 0 auto 5px auto;">
-                      <div class="col-10" style="margin: auto;">
-                        <h3>Qt desinger and OCR project</h3>
-                        <p>Optical character reading was performed with the interface created with Qt Desinger.</p>
-                        <h4>Functions Performed</h4>
-                        <ul>
-                          <li>WebCam optical character reading</li>
-                          <li>Image optical character reading and voiceover</li>
-                          <li>Reading image optical characters and creating pdf</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <!-- IDE Header & Nav -->
+    <nav class="ide-nav">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <span class="ide-dot red"></span>
+                <span class="ide-dot yellow"></span>
+                <span class="ide-dot green"></span>
+                <span class="logo-text">ilbeyli.workspace</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about"><span class="code-symbol">#</span>about</a>
+                <a href="#projects"><span class="code-symbol">#</span>projects</a>
+                <a href="#blog"><span class="code-symbol">#</span>blog</a>
             </div>
         </div>
+    </nav>
 
-    </main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="about">
+        <div class="hero-container">
+            <div class="ide-line-prefix">01 // AUTHOR</div>
+            <h2 class="hero-subtitle">Abdurrahman</h2>
+            <h1 class="hero-title">Engineering at the hardware level<span class="cursor">_</span></h1>
+            <p class="hero-description">
+                Electrical & Electronics Engineer specializing in embedded systems, STM32, C#, C++, and desktop software.
+            </p>
+        </div>
+    </section>
+
+    <!-- IDE Tab Switcher -->
+    <div class="section-tabs">
+        <button class="tab-btn active" data-tab="projects"><span class="tab-icon">📄</span> Projects.cs</button>
+        <button class="tab-btn" data-tab="blog"><span class="tab-icon">📝</span> Articles.md</button>
+    </div>
+
+    <!-- Horizontal Cards Sections -->
+    <section class="section-container tab-content active" id="projects-section">
+        <div class="horizontal-scroll-wrapper" id="projects-container">
+            <!-- Dynamic Cards Loaded via JS -->
+        </div>
+    </section>
+
+    <section class="section-container tab-content" id="blog-section">
+        <div class="horizontal-scroll-wrapper" id="blog-container">
+            <!-- Dynamic Cards Loaded via JS -->
+        </div>
+    </section>
+
+    <!-- Detail Modal -->
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal-card">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "post-1",
+    "type": "Article.md",
+    "date": "Jun 30, 2026",
+    "title": "The Shifting Line Between CSS States and JavaScript Events",
+    "tags": ["CSS", "STATE", "IDE-UX"],
+    "author": "Daniel Schwarz",
+    "avatar": "https://i.pravatar.cc/100?img=12",
+    "summary": "Modern web mimarisinde durum yönetiminin CSS ve JS arasındaki dağılımı.",
+    "details": "<p>CSS pseudo-class yapılarının gelişimi ile JavaScript olay yükünün nasıl hafifletildiğini inceliyoruz.</p>"
+  },
+  {
+    "id": "post-2",
+    "type": "Article.md",
+    "date": "Jun 18, 2026",
+    "title": "The Siren Song of ariaNotify()",
+    "tags": ["ACCESSIBILITY", "JS"],
+    "author": "Mat Marquis",
+    "avatar": "https://i.pravatar.cc/100?img=60",
+    "summary": "Erişilebilirlik bildirimlerinde yeni nesil ariaNotify metodunun kullanımı.",
+    "details": "<p>Ekran okuyucular için dinamik içerik güncellemelerinde yaşanan erişilebilirlik çözümleri.</p>"
+  }
+]
