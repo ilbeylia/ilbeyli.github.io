@@ -3,33 +3,60 @@
     "id": "project-1",
     "type": "Project.cs",
     "date": "Aug 2026",
-    "title": "Ilbeyli v2.0 Control Card",
+    "title": {
+      "en": "Ilbeyli v2.0 Control Card",
+      "tr": "Ilbeyli v2.0 Kontrol Kartı"
+    },
     "tags": ["STM32", "EMBEDDED", "HARDWARE"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",
-    "summary": "High-performance STM32F411 microcontroller board designed for motion control.",
-    "details": "<p>The Ilbeyli v2.0 control card is a powerful ARM Cortex-M4 based board.</p><h4>Config:</h4><pre><code>var board = new ControlBoard {\n    MCU = \"STM32F411\",\n    Drivers = [\"TB6600\", \"DRV8825\"],\n    Display = \"Nextion\"\n};</code></pre>"
+    "summary": {
+      "en": "High-performance STM32F411 microcontroller board designed for motion control.",
+      "tr": "Hareket kontrolü için tasarlanmış yüksek performanslı STM32F411 mikrodenetleyici kartı."
+    },
+    "details": {
+      "en": "<p>The Ilbeyli v2.0 control card is a powerful ARM Cortex-M4 based board.</p><h4>Config:</h4><pre><code>var board = new ControlBoard {\n    MCU = \"STM32F411\",\n    Drivers = [\"TB6600\", \"DRV8825\"],\n    Display = \"Nextion\"\n};</code></pre>",
+      "tr": "<p>Ilbeyli v2.0 kontrol kartı, güçlü ARM Cortex-M4 tabanlı bir sistemdir.</p><h4>Ayar:</h4><pre><code>var board = new ControlBoard {\n    MCU = \"STM32F411\",\n    Drivers = [\"TB6600\", \"DRV8825\"],\n    Display = \"Nextion\"\n};</code></pre>"
+    }
   },
   {
     "id": "project-2",
     "type": "App.cs",
     "date": "Jul 2026",
-    "title": "KeyStrVis Visualizer",
+    "title": {
+      "en": "KeyStrVis Visualizer",
+      "tr": "KeyStrVis Görselleştirici"
+    },
     "tags": ["C#", "DESKTOP", "WPF"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",
-    "summary": "Real-time keyboard stroke visualizer providing dynamic analytics.",
-    "details": "<p>KeyStrVis provides real-time visualization of key presses and system activity.</p>"
+    "summary": {
+      "en": "Real-time keyboard stroke visualizer providing dynamic analytics.",
+      "tr": "Dinamik analitik sağlayan gerçek zamanlı klavye vuruş görselleştiricisi."
+    },
+    "details": {
+      "en": "<p>KeyStrVis provides real-time visualization of key presses and system activity.</p>",
+      "tr": "<p>KeyStrVis, tuş vuruşlarının ve sistem aktivitesinin anlık görselleştirmesini sunar.</p>"
+    }
   },
   {
     "id": "project-3",
     "type": "Vision.py",
     "date": "Jun 2026",
-    "title": "Qt OCR & PDF Tool",
+    "title": {
+      "en": "Qt OCR & PDF Tool",
+      "tr": "Qt OCR & PDF Aracı"
+    },
     "tags": ["PYTHON", "OPENCV", "QT"],
     "author": "Abdurrahman",
     "avatar": "https://i.pravatar.cc/100?img=33",
-    "summary": "Optical character recognition tool utilizing WebCam streams and automatic PDF creation.",
-    "details": "<p>Real-time webcam OCR stream processing with text-to-speech audio outputs.</p>"
+    "summary": {
+      "en": "Optical character recognition tool utilizing WebCam streams and automatic PDF creation.",
+      "tr": "Kamera akışlarını işleyerek otomatik PDF oluşturan optik karakter tanıma aracı."
+    },
+    "details": {
+      "en": "<p>Real-time webcam OCR stream processing with text-to-speech audio outputs.</p>",
+      "tr": "<p>Sesli okuma desteği barındıran gerçek zamanlı kamera OCR akış işleme sistemi.</p>"
+    }
   }
 ]

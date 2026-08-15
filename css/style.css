@@ -27,6 +27,13 @@ body {
     overflow-x: hidden;
 }
 
+/* Dil Değişim Yumuşak Geçiş Animasyonu */
+.i18n-animating {
+    opacity: 0.3;
+    transform: translateY(3px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 /* Preloader */
 #preloader {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
@@ -131,7 +138,7 @@ body {
 .card-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 .card-tag-item { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--accent-orange); background: rgba(209, 154, 102, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(209, 154, 102, 0.2); }
 
-/* Modal */
+/* Modal & Temaya Uygun Dikey Scrollbar */
 .modal-backdrop {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -144,87 +151,95 @@ body {
     box-shadow: 0 24px 48px rgba(0,0,0,0.5);
 }
 
-.modal-close {
-    position: absolute; top: 16px; right: 16px; border: none; background: var(--code-bg);
-    color: var(--text-primary); width: 30px; height: 30px; border-radius: 50%;
-    cursor: pointer; font-size: 16px;
+/* Chrome, Edge, Safari Özel Modal Scrollbar */
+.modal-card::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-card::-webkit-scrollbar-track {
+    background: var(--code-bg);
+    border-radius: 0 16px 16px 0;
+}
+.modal-card::-webkit-scrollbar-thumb {
+    background: var(--card-border);
+    border-radius: 4px;
+}
+.modal-card::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
 }
 
+/* Firefox Modal Scrollbar */
+.modal-card {
+    scrollbar-width: thin;
+    scrollbar-color: var(--card-border) var(--code-bg);
+}
+
+.modal-close {
+    position: absolute; top: 16px; right: 16px; border: none; background: var(--code-bg);
+    color: var(--text-primary); width: 32px; height: 32px; border-radius: 50%;
+    cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s ease;
+}
+.modal-close:hover { background: #e06c75; color: #ffffff; }
+
 pre { background: var(--code-bg); padding: 14px; border-radius: 8px; border: 1px solid var(--card-border); font-family: var(--font-mono); font-size: 13px; margin: 12px 0; overflow-x: auto; color: #ffffff; }
+
+/* Sağ Altta Sabit Dil Değiştirici Butonu */
+.lang-switch-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1500;
+}
+
+.lang-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--accent-blue);
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.lang-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    background: #2c313a;
+    box-shadow: 0 12px 28px rgba(97, 175, 239, 0.3);
+}
+
+.lang-btn:active {
+    transform: translateY(0) scale(0.98);
+}
 
 /* ==========================================
    RESPONSIVE (Mobil & Tablet) DÜZENLEMELER
    ========================================== */
 
 @media (max-width: 768px) {
-    .nav-content {
-        padding: 0 16px;
-    }
-
-    .hero-section {
-        padding-top: 90px;
-        padding-bottom: 10px;
-    }
-
-    .hero-title {
-        font-size: 28px;
-    }
-
-    .hero-description {
-        font-size: 15px;
-        padding: 0 16px;
-    }
-
-    .section-tabs {
-        margin: 24px 0 12px 0;
-    }
-
-    .tab-btn {
-        padding: 6px 12px;
-        font-size: 12px;
-    }
-
-    .section-container {
-        padding: 0 16px 40px 16px;
-    }
-
-    .horizontal-scroll-wrapper {
-        gap: 14px;
-        padding: 15px 5px;
-    }
-
-    .dev-card {
-        flex: 0 0 260px;
-        height: 330px;
-        padding: 20px 18px;
-    }
-
-    .card-main-title {
-        font-size: 18px;
-    }
-
-    .modal-card {
-        width: 95%;
-        padding: 20px;
-        max-height: 85vh;
-    }
-
-    .modal-card h2 {
-        font-size: 20px !important;
-    }
+    .nav-content { padding: 0 16px; }
+    .hero-section { padding-top: 90px; padding-bottom: 10px; }
+    .hero-title { font-size: 28px; }
+    .hero-description { font-size: 15px; padding: 0 16px; }
+    .section-tabs { margin: 24px 0 12px 0; }
+    .tab-btn { padding: 6px 12px; font-size: 12px; }
+    .section-container { padding: 0 16px 40px 16px; }
+    .horizontal-scroll-wrapper { gap: 14px; padding: 15px 5px; }
+    .dev-card { flex: 0 0 260px; height: 330px; padding: 20px 18px; }
+    .card-main-title { font-size: 18px; }
+    .modal-card { width: 95%; padding: 20px; max-height: 85vh; }
+    .modal-card h2 { font-size: 20px !important; }
+    .lang-switch-container { bottom: 16px; right: 16px; }
 }
 
 @media (max-width: 480px) {
-    .dev-card {
-        flex: 0 0 82vw;
-        height: 310px;
-    }
-
-    .hero-title {
-        font-size: 24px;
-    }
-
-    .logo-text {
-        font-size: 12px;
-    }
+    .dev-card { flex: 0 0 82vw; height: 310px; }
+    .hero-title { font-size: 24px; }
+    .logo-text { font-size: 12px; }
 }

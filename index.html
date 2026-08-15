@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ilbeyli // One Dark Workspace</title>
+    <title>ilbeyli</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
                 <span class="logo-text">ilbeyli.workspace</span>
             </a>
             <div class="nav-links">
-                <a href="#" id="about-link"><span class="code-symbol">#</span>about</a>
+                <a href="#about" id="about-link"><span class="code-symbol">#</span><span data-i18n="nav.about">about</span></a>
             </div>
         </div>
     </nav>
@@ -37,8 +37,8 @@
     <section class="hero-section">
         <div class="hero-container">
             <div class="ide-line-prefix">01 // AUTHOR</div>
-            <h2 class="hero-subtitle">Abdurrahman</h2>
-            <h1 class="hero-title">Engineering at the hardware level<span class="cursor">_</span></h1>
+            <h2 class="hero-subtitle">ILBEYLI</h2>
+            <h1 class="hero-title"><span data-i18n="hero.title">Engineering at the hardware level</span><span class="cursor">_</span></h1>
             <p class="hero-description" id="about-text">
                 Loading...
             </p>
@@ -47,8 +47,8 @@
 
     <!-- IDE Tab Switcher -->
     <div class="section-tabs">
-        <button class="tab-btn active" data-tab="projects"><span class="tab-icon">📄</span> Projects.cs</button>
-        <button class="tab-btn" data-tab="blog"><span class="tab-icon">📝</span> Articles.md</button>
+        <button class="tab-btn active" data-tab="projects"></span> Projects.cs</button>
+        <button class="tab-btn" data-tab="blog"></span> Articles.md</button>
     </div>
 
     <!-- Cards Content Sections -->
@@ -70,6 +70,14 @@
             <button class="modal-close" id="modal-close">&times;</button>
             <div id="modal-content"></div>
         </div>
+    </div>
+
+    <!-- Sağ Alt Sabit Dil Butonu -->
+    <div class="lang-switch-container">
+        <button id="langToggleBtn" class="lang-btn">
+            <span id="langLabel">TR</span>
+            <span class="lang-icon">🌐</span>
+        </button>
     </div>
 
     <script src="js/script.js"></script>

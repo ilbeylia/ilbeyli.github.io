@@ -1,1 +1,21 @@
-Electrical & Electronics Engineer specializing in embedded systems, STM32, C#, C++, and desktop software.
+Merhaba, ben Abdurrahman.
+
+Elektrik-Elektronik Mühendisiyim ve ağırlıklı olarak yazılım, uygulama geliştirme ve sistem tasarımı üzerine çalışıyorum. Özellikle bir fikri uçtan uca çalışan bir ürüne dönüştürme süreci ilgimi çekiyor.
+
+Çalışmalarımda öncelikli olarak uygulama geliştirme, API geliştirme ve veritabanı tasarımı üzerine yoğunlaşıyorum. C#, .NET, .NET MAUI, Web API, PostgreSQL ve Docker gibi teknolojileri kullanarak masaüstü, mobil ve web tabanlı uygulamalar geliştiriyorum. Bunun yanında uygulamaların arka planında çalışan servislerin geliştirilmesi, API mimarisi, veritabanı yapılarının oluşturulması ve sunucu/deployment süreçleriyle de ilgileniyorum.
+
+Yazılım geliştirme sürecinde yalnızca kod yazmaya değil, sistemin bütününü doğru şekilde tasarlamaya önem veriyorum. Verilerin nasıl saklanacağından API'lerin nasıl yapılandırılacağına, uygulamanın kullanıcıyla nasıl etkileşeceğinden sistemin canlı ortama nasıl taşınacağına kadar farklı katmanlar üzerinde çalışıyorum.
+
+Yazılım çalışmalarımın yanında gömülü sistemler ve elektronik de ilgi alanlarım arasında yer alıyor. STM32 ve ESP32 gibi mikrodenetleyicilerle çalışıyor, donanım ve yazılımın birlikte çalıştığı projeler geliştiriyorum. Elektronik devre tasarımıyla ilgileniyor ve projeler için PCB tasarımları oluşturuyorum.
+
+Elektrik-elektronik mühendisliği altyapım sayesinde yazılım tarafındaki çalışmalarımı donanım tarafıyla birleştirebiliyor; gerektiğinde bir uygulamadan API'ye, API'den veritabanına ve oradan bir elektronik cihaza kadar uzanan sistemler üzerinde çalışabiliyorum.
+
+Bu blogu, üzerinde çalıştığım projelerde edindiğim deneyimleri, karşılaştığım teknik problemleri ve bu problemlere ürettiğim çözümleri paylaşmak için oluşturdum.
+
+Burada ağırlıklı olarak uygulama geliştirme, .NET, API geliştirme, veritabanları, sistem mimarisi, deployment, gömülü sistemler, mikrodenetleyiciler, elektronik ve PCB tasarımı üzerine yazılar paylaşacağım.
+
+Amacım yalnızca “nasıl yapılır?” sorusuna cevap vermek değil, mümkün olduğunca “neden böyle yapılmalı?” sorusunu da açıklamak.
+
+Öğrenmeye, üretmeye ve geliştirmeye devam ediyorum.
+
+Fikirden uygulamaya, uygulamadan çalışan sisteme.
